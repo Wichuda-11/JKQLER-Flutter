@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JKQLER Demo',
+      debugShowCheckedModeBanner: false, //remove debug sign
+      title: 'Counter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,9 +23,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'JKQLER Demo Start'),
+      home: const MyHomePage(title: 'Counter'),
     );
   }
 }
@@ -49,8 +50,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int currentIndex= 0;
 
-  void _incrementCounter() {
+  void _increaseCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -58,6 +60,35 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+  void _decreaseCounter() {
+    setState(() {
+      _counter--;
+    });
+  } //decrease counter
+  
+  void _resetCounter() {
+    setState(() {
+      _counter= 0;
+    });
+  }
+
+  void _100Counter() {
+    setState(() {
+      _counter = 100;
+    });
+  }
+
+  void _10Counter() {
+    setState(() {
+      _counter = _counter-10;
+    });
+  }
+
+  void _tenCounter() {
+    setState(() {
+      _counter = _counter + 10;
     });
   }
 
@@ -73,7 +104,27 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+        leading: Icon(Icons.menu, color: Colors.black),
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(//left icon button
+          onPressed: () {
+            _increaseCounter();
+          },
+          icon: Icon(Icons.add), color: Colors.white),
+          IconButton(//middle icon button
+          onPressed: () {_resetCounter();
+          },
+          icon: Icon(Icons.restart_alt), color: Colors.red),
+          IconButton(//right icon button
+          onPressed: () {_decreaseCounter();
+          },
+          icon: Icon(Icons.remove), color: Colors.white),
+          IconButton(//right icon button
+          onPressed: () {_100Counter();
+          },
+          icon: Icon(Icons.star), color: Colors.lightBlue)
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -96,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You pushed the button (times) :',
+              'You have pushed the button (times) :',
             ),
             Text(
               '$_counter',
@@ -111,11 +162,47 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add_home),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+/*
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        //extend button
+        onPressed: _10Counter,
+        tooltip: 'Increase Counter',
+        icon: const Icon(Icons.token, color: Colors.black),
+        label: const Text('Add'),
+        backgroundColor: Colors.green,
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+*/       
+      
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(left: 30),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: _increaseCounter,
+              child: Icon(Icons.add, color: Colors.white),
+              ),
+              Expanded(child: Container()),
+              FloatingActionButton(
+                onPressed: _resetCounter,
+                child: Icon(Icons.restart_alt, color: Colors.red),
+              ),
+              Expanded(child: Container()),
+              FloatingActionButton(
+                onPressed: _decreaseCounter,
+                child: Icon(Icons.remove, color: Colors.white),
+              ),
+              Expanded(child: Container()),
+              FloatingActionButton(
+              onPressed: _tenCounter,
+              child: Icon(Icons.backup, color: Colors.yellow),
+            ),
+          ],
+        ),
+      ),
+      
     );
   }
 }
