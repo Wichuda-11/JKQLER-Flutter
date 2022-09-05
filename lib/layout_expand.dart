@@ -45,15 +45,37 @@ class _ExpandedPageState extends State<ExpandedPage> {
                   height: 40.0,
                   child: Align(
                       child: Text('height 40.0'),
-                      alignment: Alignment.bottomCenter),
+                      alignment: Alignment.topLeft),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Icon(Icons.home),
-                    Icon(Icons.star),
-                    Icon(Icons.favorite)
-                  ],
+                Expanded(
+                  child: Container(
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Icon(
+                          Icons.home,
+                          color: Colors.yellow,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.yellow,
+                        )
+                      ],
+                    ),
+                  ),
+                  flex: 1,
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.purple,
+                  ),
+                  flex: 1,
                 ),
               ],
             ),

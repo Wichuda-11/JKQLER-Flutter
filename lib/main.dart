@@ -6,6 +6,7 @@ import 'package:flutter_application_hello/nu_page.dart';
 import 'package:flutter_application_hello/layout_row_column.dart';
 import 'package:flutter_application_hello/layout_stack.dart';
 import 'package:flutter_application_hello/layout_expand.dart';
+import 'package:flutter_application_hello/layout_top_buttons.dart';
 
 main() {
   runApp(const MyApp());
@@ -48,7 +49,7 @@ class _MainPageState extends State<MainPage> {
     RowColumnPage(),
     StackPage(),
     ExpandedPage(),
-    CountOne(title: 'Count One'),
+    TopFloatIcon(),
   ];
 
   @override
@@ -71,9 +72,9 @@ class _MainPageState extends State<MainPage> {
           onTap: (index) => setState(() {
                 intCurrentIndex = index;
               }),
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.yellow,
           selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.yellow,
+          unselectedItemColor: Colors.brown,
           iconSize: 30,
           selectedFontSize: 14,
           unselectedFontSize: 10,
