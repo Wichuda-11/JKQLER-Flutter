@@ -13,7 +13,7 @@ class _ExpandedPageState extends State<ExpandedPage> {
       children: <Widget>[
         Container(
           width: 100.0,
-          color: Colors.yellow,
+          color: Colors.pink,
         ),
         Expanded(
           child: Container(

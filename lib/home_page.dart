@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  //change when reload app
-  const HomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const HomePage({Key? key}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -11,13 +9,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          "Welcome to Jib's App",
-          style: TextStyle(fontSize: 30,
-            color: Colors.green,
+    return Center(
+      child: Container(
+        height: 200.0,
+        width: 200.0,
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/images/v5.jpeg'),
+            fit: BoxFit.fill,
           ),
+          border: Border.all(
+            width: 3.0, 
+            color: Colors.black,
+          ),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 10.0, // soften the shadow
+              spreadRadius: 5.0, //extend the shadow
+              offset: Offset(
+                0.0, // Move to right 5 horizontally
+                0.0, // Move to bottom 5 Vertically
+              ),
+            )
+          ],
         ),
       ),
     );
