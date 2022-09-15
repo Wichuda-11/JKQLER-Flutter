@@ -22,10 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //remove debug sign
+
       title: "Jib's App",
       theme: ThemeData(
         primarySwatch: Colors.purple, //set theme color
       ),
+      
       home: const MainPage(title: "Jib's App"),
     );
   }
