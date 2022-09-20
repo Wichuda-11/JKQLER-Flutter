@@ -15,11 +15,11 @@ class _HomePageState extends State<HomePage> {
         width: 200.0,
         decoration: BoxDecoration(
           image: const DecorationImage(
-            image: AssetImage('assets/images/v5.jpeg'),
+            image: AssetImage('assets/images/saving.jpg'),
             fit: BoxFit.fill,
           ),
           border: Border.all(
-            width: 3.0, 
+            width: 1.0, 
             color: Colors.black,
           ),
           shape: BoxShape.circle,
