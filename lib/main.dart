@@ -12,6 +12,7 @@ import 'package:flutter_application_hello/installment.dart';
 import 'package:flutter_application_hello/Image_listview_page.dart';
 import 'package:flutter_application_hello/Image_games_page.dart';
 import 'package:flutter_application_hello/saving.dart';
+import 'package:flutter_application_hello/Image_movie_page.dart';
 
 main() {
   runApp(const MyApp());
@@ -24,12 +25,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //remove debug sign
 
-      title: "Thai Saving Bank",
+      title: "Final Exam W.Wichuda",
       theme: ThemeData(
-        primarySwatch: Colors.green, //set theme color
+        primarySwatch: Colors.blue, //set theme color
       ),
       
-      home: const MainPage(title: "Thai Saving Bank"),
+      home: const MainPage(title: "Final Exam W.Wichuda"),
     );
   }
 }
@@ -62,6 +63,7 @@ class _MainPageState extends State<MainPage> {
     Listview(),
     Games(),*/
     SavingPage(),
+    Movie(),
   ];
 
   @override
@@ -114,7 +116,8 @@ class _MainPageState extends State<MainPage> {
             /*BottomNavigationBarItem(icon: Icon(Icons.image), label: 'ListView'),*/
             /*BottomNavigationBarItem(icon: Icon(Icons.sports_esports), label: 'Games'),*/
             BottomNavigationBarItem(
-                icon: Icon(Icons.savings), label: 'Saving'),    
+                icon: Icon(Icons.savings), label: 'Saving'),
+            BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Movies'),    
           ]),
     );
   }

@@ -15,19 +15,19 @@ class _HomePageState extends State<HomePage> {
         width: 200.0,
         decoration: BoxDecoration(
           image: const DecorationImage(
-            image: AssetImage('assets/images/saving.jpg'),
+            image: AssetImage('assets/images/Exam.jpg'),
             fit: BoxFit.fill,
           ),
           border: Border.all(
             width: 1.0, 
-            color: Colors.black,
+            color: Colors.grey,
           ),
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: Color.fromARGB(255, 94, 92, 92),
               blurRadius: 10.0, // soften the shadow
-              spreadRadius: 5.0, //extend the shadow
+              spreadRadius: 7.0, //extend the shadow
               offset: Offset(
                 0.0, // Move to right 5 horizontally
                 0.0, // Move to bottom 5 Vertically
